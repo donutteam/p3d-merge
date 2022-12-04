@@ -6,11 +6,11 @@ The most basic execution of the tool takes 2+ input filepaths, and 1 output file
 
 `P3DMerge.exe "Path\To\File 1.p3d" "Path\To\File 2.p3d" "Path\To\File 3.p3d" -o "Path\To\Output.p3d"`
 
-*Example*
+*Example output:*
 ```
 P3DMerge.exe "C:\SHAR\art\chars\homer_m.p3d" "C:\SHAR\art\chars\h_fat_m.p3d" -o "Merged.p3d"
 Inputs: C:\SHAR\art\chars\homer_m.p3d; C:\SHAR\art\chars\h_fat_m.p3d
-Output: C:\Users\Josh\Dropbox\repos\P3DMerge\P3DMerge\bin\Debug\Merged.p3d
+Output: C:\Redacted\Merged.p3d
 
 Parsing inputs...
 Checking: 'C:\SHAR\art\chars\homer_m.p3d'...
