@@ -16,7 +16,7 @@ namespace P3DMerge
             0x7030,     // Export Info
             0x19001,    // Image
             0x19000,    // Texture
-            0x11000,    // Set
+            0x3000110,  // Set
             0x11000,    // Shader
             0x22000,    // Texture Font
             0x22002,    // Image Font
