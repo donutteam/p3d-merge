@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace P3DMerge
 {
@@ -369,13 +368,21 @@ namespace P3DMerge
                         string version = fvi.FileVersion;
                         string[] history = new string[]
                         {
-                            PadString($"P3DMerge version {version}"),
-                            PadString($"P3DMerge.exe \"{string.Join("\" \"", args)}\""),
-                            PadString($"Run at {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss} (UTC)")
+                            $"P3DMerge version {version}",
+                            $"P3DMerge.exe \"{string.Join("\" \"", args)}\"",
+                            $"Run at {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss} (UTC)"
                         };
 
-                        bw.Write((short)history.Length);
+                        List<string> history2 = new List<string>();
+                        int maxStringLength = 252;
                         foreach (string line in history)
+                        {
+                            for (int i = 0; i < line.Length; i += maxStringLength)
+                                history2.Add(PadString(line.Substring(i, Math.Min(maxStringLength, line.Length - i))));
+                        }
+
+                        bw.Write((short)history2.Count);
+                        foreach (string line in history2)
                         {
                             bw.Write((byte)line.Length);
                             bw.Write(line.ToCharArray());
@@ -475,7 +482,7 @@ namespace P3DMerge
             if (diff == 0)
                 return str;
 
-            return str + new string('\0', diff);
+            return str + new string('\0', 4 - diff);
         }
     }
 }
