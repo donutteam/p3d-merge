@@ -288,7 +288,7 @@ namespace P3DMerge
 
                         using (BinaryReader br = new BinaryReader(fs))
                         {
-                            byte[] fileBytes = lzr_compression.DecompressFile(br);
+                            byte[] fileBytes = LZR_Compression.DecompressFile(br);
                             uint signature = BitConverter.ToUInt32(fileBytes, 0);
 
                             if (signature != P3DSignature)

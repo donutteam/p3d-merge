@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace P3DMerge
 {
-    public static class lzr_compression
+    public static class LZR_Compression
     {
         private const uint CompressedSignature = 0x5A443350;
 
@@ -72,7 +70,7 @@ namespace P3DMerge
                 }
                 else
                 {
-                    byte runLength = code;
+                    int runLength = code;
 
                     if (runLength == 0)
                     {
